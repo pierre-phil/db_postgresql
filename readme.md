@@ -77,3 +77,76 @@ $ ALTER TABLE users ADD COLUMN bio TEXT DEFAULT 'Hello World';
 (3 lignes)
 
 ```
+
+5. (fail)
+Modifiez toutes les lignes existantes pour que la "bio" de chacun affiche, "Hello, i am PRENOM_DU_USER".
+Il faudra remplacer PRENOM_DU_USER par le véritable login de l'utilisateur.
+Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+
+```
+UPDATE users SET bio = (users.username);
+
+```
+
+6.
+Afficher les 2 lignes qui ont les "id" les plus grands par ordre décroissant.
+Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+
+```
+$ SELECT * FROM users ORDER BY id DESC;
+  // 
+  id | username | password |     bio     
+----+----------+----------+-------------
+  9 | faythe   | 161718   | Hello World
+  8 | eve      | 131415   | Hello World
+  7 | dan      | 101112   | Hello World
+(3 lignes)
+
+```
+
+7.
+Afficher toutes les lignes de la table "users" dont les "id" sont impairs par ordre croissant.
+Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+
+```
+$ SELECT * FROM users WHERE id % 2 = 1 ORDER BY id DESC;
+  //
+   id | username | password |     bio     
+----+----------+----------+-------------
+  9 | faythe   | 161718   | Hello World
+  7 | dan      | 101112   | Hello World
+(2 lignes)
+
+```
+
+8.
+Effacez toutes les lignes de la table "users dont les "id" sont pairs. Affichez toutes les lignes de la table users.
+Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+
+```
+$ DELETE FROM users WHERE id % 2 = 0;
+  // DELETE 1
+  
+$ SELECT * FROM users;
+  //
+ id | username | password |     bio     
+----+----------+----------+-------------
+  7 | dan      | 101112   | Hello World
+  9 | faythe   | 161718   | Hello World
+(2 lignes)
+```
+
+9.
+Effacer la TABLE "users".
+Effacer la DATABASE "db_1".
+Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
+
+```
+$ DROP TABLE users;
+  // DROP TABLE
+$ \c postgres
+  // Vous êtes maintenant connecté à la base de données « postgres » en tant qu'utilisateur « db_test ».
+$ DROP DATABASE db_1;
+  // DROP DATABASE
+
+```
