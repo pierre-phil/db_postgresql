@@ -78,13 +78,21 @@ $ ALTER TABLE users ADD COLUMN bio TEXT DEFAULT 'Hello World';
 
 ```
 
-5. (fail)
+5.
 Modifiez toutes les lignes existantes pour que la "bio" de chacun affiche, "Hello, i am PRENOM_DU_USER".
 Il faudra remplacer PRENOM_DU_USER par le véritable login de l'utilisateur.
 Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
 
 ```
-UPDATE users SET bio = (users.username);
+$ UPDATE users SET bio = 'Hello, I am' || (username);
+$ SELECT * FROM users;
+  //
+   id | username | password |     bio     
+----+----------+----------+-------------
+  1 | dan      | 101112   | Hello, I am dan
+  2 | eve      | 131415   | Hello, I am eve
+  3 | faythe   | 161718   | Hello, I am faythe
+(3 lignes)
 
 ```
 
