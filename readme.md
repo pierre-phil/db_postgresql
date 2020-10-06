@@ -51,7 +51,7 @@ Affichez toutes les lignes de la table "users" de la base de donnée "db_1" dont
 Vous devrez fournir les commandes SQL entrées ainsi que tous les outputs de ces commandes.
 
 ```
-$ SELECT * FROM users WHERE length(password) > 3;
+$ SELECT * FROM users WHERE LENGTH(password) > 3;
   //
    id | username | password 
 ----+----------+----------
